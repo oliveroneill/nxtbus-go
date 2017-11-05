@@ -11,17 +11,22 @@ import (
 
 // StopMonitoringRequestURL is the NXTBUS API url
 const StopMonitoringRequestURL = "http://siri.nxtbus.act.gov.au:11000/%s/%s/service.xml"
+
 // StopMonitoringServiceType is the indicator for monitoring stops
 const StopMonitoringServiceType = "sm"
 
 // SiriVersion is the version of Siri being used for the requests
 const SiriVersion = "2.0"
+
 // Xmlns is the Siri namespace
 const Xmlns = "http://www.siri.org.uk/siri"
+
 // Xsi is the schema instance
 const Xsi = "http://www.w3.org/2001/XMLSchema-instance"
+
 //Xsd is the schema
 const Xsd = "http://www.w3.org/2001/XMLSchema"
+
 // PreviewInterval is the time window that we want to monitor stops for
 const PreviewInterval = 90
 
