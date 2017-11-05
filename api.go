@@ -72,6 +72,7 @@ type StopMonitoringDelivery struct {
 // MonitoredStopVisit contains information regarding each route through this
 // stop
 type MonitoredStopVisit struct {
+	LineName              string `xml:"MonitoredVehicleJourney>PublishedLineName"`
 	ExpectedDepartureTime string `xml:"MonitoredVehicleJourney>MonitoredCall>ExpectedDepartureTime"`
 	ExpectedArrivalTime   string `xml:"MonitoredVehicleJourney>MonitoredCall>ExpectedArrivalTime"`
 	StopPointRef          string `xml:"MonitoredVehicleJourney>MonitoredCall>StopPointRef"`
