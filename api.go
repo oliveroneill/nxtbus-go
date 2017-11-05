@@ -30,7 +30,7 @@ const Xsd = "http://www.w3.org/2001/XMLSchema"
 // PreviewInterval is the time window that we want to monitor stops for
 const PreviewInterval = 90
 
-// The format used for NXTBUS API
+// DateFormat is the format used for NXTBUS API
 const DateFormat = "2006-01-02T15:04:05.000000"
 
 // SiriSchema is the request document for monitoring stops
