@@ -1,11 +1,10 @@
 package nxtbus
 
 import (
-	"bufio"
 	"encoding/csv"
 	"errors"
 	"io"
-	"os"
+	"fmt"
 	"strconv"
 )
 
@@ -26,12 +25,13 @@ type Stop struct {
 // retrieve all stop information
 func getStops() []Stop {
 	// read through csv
-	csvFile, err := os.Open(StopsFile)
-	defer csvFile.Close()
+	// Open is defined in `static.go` which is created by `staticfiles`
+	csvFile, err := Open(StopsFile)
 	if err != nil {
+		fmt.Println(err)
 		return []Stop{}
 	}
-	reader := csv.NewReader(bufio.NewReader(csvFile))
+	reader := csv.NewReader(csvFile)
 	var stops []Stop
 	for {
 		line, err := reader.Read()

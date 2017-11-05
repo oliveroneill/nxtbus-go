@@ -27,6 +27,19 @@ func main() {
 }
 ```
 
+## Updating Stop Data
+The stop data is retrieved from [Transport Canberra](https://www.transport.act.gov.au/getting-around/bus-services/mobile-apps).
+
+This data is bundled using [staticfiles](https://github.com/bouk/staticfiles).
+When updating this file, you'll need to run:
+```bash
+staticfiles -o static.go -package nxtbus static/
+```
+Ensure you have `staticfiles` installed first, via:
+```bash
+go get -u github.com/bouk/staticfiles
+```
+
 ## TODO
 
   * Parse dates automatically when parsing XML response
