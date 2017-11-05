@@ -30,6 +30,9 @@ const Xsd = "http://www.w3.org/2001/XMLSchema"
 // PreviewInterval is the time window that we want to monitor stops for
 const PreviewInterval = 90
 
+// The format used for NXTBUS API
+const DateFormat = "2006-01-02T15:04:05.000000"
+
 // SiriSchema is the request document for monitoring stops
 type SiriSchema struct {
 	ServiceRequest *ServiceRequest `xml:"ServiceRequest"`
@@ -80,7 +83,7 @@ type MonitoredStopVisit struct {
 // createStopMonitoringRequestBody will create a request body for the specified
 // API key and Stop ID, this document can then be used to query NXTBUS
 func createStopMonitoringRequestBody(apiKey string, stopID uint) ([]byte, error) {
-	now := time.Now().Format("2006-01-02T15:04:05.000000")
+	now := time.Now().Format(DateFormat)
 	tmp := SiriSchema{
 		Xmlns:    Xmlns,
 		XmlnsXsi: Xsi,
@@ -139,4 +142,18 @@ func MakeStopMonitoringRequest(apiKey string, stopID uint) (*StopMonitoringRespo
 		return nil, err
 	}
 	return parseStopMonitoringResponseBody(content)
+}
+
+// ParseDate can be used to convert dates within the XML document
+// into proper dates. Currently the response parsing will not
+// automatically convert strings to dates
+func ParseDate(dateString string) *time.Time {
+	if dateString == "" {
+		return nil
+	}
+	t, err := time.Parse(DateFormat, dateString)
+	if err != nil {
+		return nil
+	}
+	return &t
 }

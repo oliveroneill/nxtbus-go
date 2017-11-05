@@ -29,5 +29,6 @@ func main() {
 
 ## TODO
 
+  * Parse dates automatically when parsing XML response
   * Add all fields available for StopMonitoringResponse
   * Add other endpoints of NXTBUS API
