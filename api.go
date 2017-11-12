@@ -31,7 +31,7 @@ const Xsd = "http://www.w3.org/2001/XMLSchema"
 const PreviewInterval = 90
 
 // DateFormat is the format used for NXTBUS API
-const DateFormat = "2006-01-02T15:04:05.000000"
+const DateFormat = "2006-01-02T15:04:05-07:00"
 
 // SiriSchema is the request document for monitoring stops
 type SiriSchema struct {
