@@ -148,14 +148,6 @@ func MakeStopMonitoringRequest(apiKey string, stopID uint) (*StopMonitoringRespo
 // ParseDate can be used to convert dates within the XML document
 // into proper dates. Currently the response parsing will not
 // automatically convert strings to dates
-func ParseDate(dateString string) time.Time {
-	var zero time.Time
-	if dateString == "" {
-		return zero
-	}
-	t, err := time.Parse(DateFormat, dateString)
-	if err != nil {
-		return zero
-	}
-	return t
+func ParseDate(dateString string) (time.Time, error) {
+	return time.Parse(DateFormat, dateString)
 }
